@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.IEmpMapper">
+	<insert id="save" parameterType="com.po.Emp">
+		INSERT INTO emp (ename,sex,birthday,address,picture,depid) 
+		VALUES(#{ename},#{sex},#{birthday},#{address},#{picture},#{depid})
+	</insert>
+	<update id="update" parameterType="com.po.Emp">
+		UPDATE emp 
+		SET ename=#{ename},sex=#{sex},birthday=#{birthday},address=#{address},picture=#{picture},depid=#{depid} 
+		WHERE eid=#{eid}
+	</update>
+	<delete id="delByEid" parameterType="Integer">
+		DELETE FROM emp WHERE eid=#{eid}
+	</delete>
+	<select id="findByEid" parameterType="Integer" resultType="com.po.Emp">
+		SELECT e.*,d.dname 
+		FROM emp e,dep d 
+		WHERE e.depid=d.did 
+		AND eid=#{eid}
+	</select>
+	<select id="findEmpViewAll" parameterType="com.po.ViewBean" resultType="com.po.Emp">
+		SELECT e.*,d.dname 
+		FROM emp e,dep d 
+		WHERE e.depid=d.did 
+		LIMIT ${(page-1)*rows},${rows} 	
+	</select>
+	<select id="findViewMax" resultType="Integer">
+		SELECT COUNT(*) FROM emp
+	</select>
+	<select id="findMaxEid" resultType="Integer">
+		SELECT MAX(eid) FROM emp
+	</select>
+</mapper>

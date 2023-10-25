@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.ISalaryMapper">
+	<insert id="save" parameterType="com.po.Salary">
+		INSERT INTO salary (eid,emoney) VALUES(#{eid},#{emoney})
+	</insert>
+	<update id="updateByEid" parameterType="com.po.Salary">
+		UPDATE salary SET emoney=#{emoney} WHERE eid=#{eid}
+	</update>	
+	<delete id="delByEid" parameterType="Integer">
+		DELETE FROM salary WHERE eid=#{eid}
+	</delete>
+	<select id="findByEid" parameterType="Integer" resultType="com.po.Salary">
+		SELECT * FROM salary WHERE eid=#{eid}
+	</select>
+</mapper>

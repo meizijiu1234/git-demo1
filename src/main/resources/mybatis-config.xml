@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- 别名 -->
+<!-- <typeAliases>
+	<typeAlias type="com.po.Dep" alias="dep"/>
+	<typeAlias type="com.po.Emp" alias="emp"/>
+	<typeAlias type="com.po.EmpWelfare" alias="ewf"/>
+	<typeAlias type="com.po.Salary" alias="sa"/>
+	<typeAlias type="com.po.Welfare" alias="wf"/>
+	<typeAlias type="com.po.ViewBean" alias="vb"/>
+</typeAliases> -->
+
+</configuration>
